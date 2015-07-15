@@ -8,14 +8,16 @@ import (
 	"os"
 )
 
+// Check if an error occured
 func check(e error) {
 	if e != nil {
 		panic(e)
 	}
 }
 
+// This is the interpreter loop which reads and parses each instruction
 func parse(instructions []byte) {
-	var memory [30000]byte
+	var memory [30000]byte // Brainfuck has 30000 bytes of memory
 	var pc, p int
 
 	for ; pc < len(instructions); pc++ {
